@@ -28,3 +28,23 @@ void Input(EL *employeeList , int &n ){          //Nhap thong tin nhan vien
 		Nhap1((employeeList+i));
 	}
 }
+void Search(EL *employeeList,int n){              
+	char province[30];
+	int dem=0;
+	fflush(stdin);
+	printf("\nNhap ten tinh can tim:");
+	gets(province);
+	for(int i=0;i<n;i++){
+		if(strcmp((employeeList+i)->Province,province)==0) dem++;
+	}
+	if(dem!=0){
+		printf("\nThong tin cua nhan vien thuoc tinh %s :",province);
+		printf("\nHoten\t\t    Tinh\t\tNamSinh");
+		for(int i=0;i<n;i++){
+			if(strcmp((employeeList+i)->Province,province)==0){
+			 Output2((employeeList+i));
+		  }
+		}
+	}
+ 	else printf("Khong co nhan vien cua tinh %s!!!!!",province);	
+}
