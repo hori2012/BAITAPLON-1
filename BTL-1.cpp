@@ -28,6 +28,16 @@ void Input(EL *employeeList , int &n ){          //Nhap thong tin nhan vien
 		Nhap1((employeeList+i));
 	}
 }
+void Output(EL *employeeList,int n){           //Xuat thong tin nhan vien
+	printf("\nThong tin cua nhan vien la:");
+	printf("\nSTT\tHoten\t\t    Tinh\t\tNgaysinh");
+	for(int i=0;i<n;i++){
+		printf("\n%d\t%-20s%-20s%-2d/%d/%d",i+1,(employeeList+i)->Name,(employeeList+i)->Province,(employeeList+i)->Day,(employeeList+i)->Month,(employeeList+i)->Year);
+	}
+}
+void Output1(EL *t){                                //Xuat thong tin 1 nhan vien
+	printf("\n%-20s%-20s%-2d/%d/%d",t->Name,t->Province,t->Day,t->Month,t->Year);
+}
 void Search(EL *employeeList,int n){              
 	char province[30];
 	int dem=0;
