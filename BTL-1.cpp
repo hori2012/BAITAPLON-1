@@ -58,3 +58,14 @@ void Search(EL *employeeList,int n){
 	}
  	else printf("Khong co nhan vien cua tinh %s!!!!!",province);	
 }
+void Recordfile(EL *employeeList,int n){                    //Ghi thong tin nhan vien vao file nhi phan
+	FILE * fp;
+	fp= fopen ("employee.dat","wb");
+	fprintf(fp,"\t%-20s\n","DANH SACH THONG TIN NHAN VIEN");
+	fprintf(fp,"%-5s%-20s%-20s%-10s","STT","Hoten","Tinh","Ngaysinh");
+	for(int i=0;i<n;i++){
+		fprintf(fp,"\n%-5d%-20s%-20s%-2d/%d/%d",i+1,(employeeList+i)->Name,(employeeList+i)->Province,(employeeList+i)->Day,(employeeList+i)->Month,(employeeList+i)->Year);
+	}
+	fprintf(fp,"\n\n \t\t\t%-10s","~~~HET~~~");
+	fclose(fp);
+}
