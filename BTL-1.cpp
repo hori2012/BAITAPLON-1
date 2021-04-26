@@ -69,3 +69,20 @@ void Recordfile(EL *employeeList,int n){                    //Ghi thong tin nhan
 	fprintf(fp,"\n\n \t\t\t%-10s","~~~HET~~~");
 	fclose(fp);
 }
+void Delete(EL *employeeList,int &n){         //Xoa nhan vien theo stt
+	int t;
+	printf("\nNhap STT nhan vien muon xoa:");
+	scanf("%d",&t);
+	for(int i=t-1;i<n-1;i++){
+		*(employeeList+i)=*(employeeList+i+1);
+	}
+	--n;
+}
+void Add(EL *employeeList,int &n){                //Them nhan vien moi
+	for(int i=n;i>n-1;i--){
+		*(employeeList+i)=*(employeeList+i-1);
+	}
+	printf("\nNhap thong tin nhan vien muon them:");
+	Nhap1((employeeList+n-1));
+	++n;
+}
