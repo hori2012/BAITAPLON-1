@@ -39,8 +39,8 @@ void Output1(EL *t){                                //Xuat thong tin 1 nhan vien
 	printf("\n%-20s%-20s%-2d/%d/%d",t->Name,t->Province,t->Day,t->Month,t->Year);
 }
 void Sort(EL *employeeList,int n){
-EL temp;
-for(int i=0;i<n-1;i++){
+EL temp;	
+for(int i=0;i<n-1;i++){	
 for(int j=i+1;j<n;j++)
 if(strcmp((employeeList+i)->Province,(employeeList+j)->Province)<0){
 temp=*(employeeList+i);
