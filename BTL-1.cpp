@@ -156,4 +156,10 @@ default:
 }
   }
 }
+int main(){
+	int n;
+	EL *employeeList;
+	employeeList=(EL*)malloc(sizeof(EL)*n);
+	Menu(employeeList,n);
+	if(employeeList!=NULL) free(employeeList);
 
