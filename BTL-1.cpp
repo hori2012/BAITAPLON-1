@@ -38,6 +38,29 @@ void Output(EL *employeeList,int n){           //Xuat thong tin nhan vien
 void Output1(EL *t){                                //Xuat thong tin 1 nhan vien
 	printf("\n%-20s%-20s%-2d/%d/%d",t->Name,t->Province,t->Day,t->Month,t->Year);
 }
+void Sort(EL *employeeList,int n){
+EL temp;
+for(int i=0;i<n-1;i++){
+for(int j=i+1;j<n;j++)
+if(strcmp((employeeList+i)->Province,(employeeList+j)->Province)<0){
+temp=*(employeeList+i);
+*(employeeList+i)=*(employeeList+j);
+*(employeeList+j)=temp;
+}
+}
+}
+void Cout(EL *employeeList,int n){             //Thong ke tinh do co bao nhieu nhan vien
+int dem=1;
+for(int i=0;i<n;i++){
+if(strcmp((employeeList+i)->Province,(employeeList+i+1)->Province)==0){
+dem++;      
+       }
+        else{
+        printf("\n%s co %d nhan vien!",(employeeList+i)->Province,dem);
+        dem==1;
+}
+    }
+}
 void Search(EL *employeeList,int n){              
 	char province[30];
 	int dem=0;
