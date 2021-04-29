@@ -1,4 +1,5 @@
-//Bai Tap Lon
+
+}//Bai Tap Lon
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
@@ -162,4 +163,5 @@ int main(){
 	employeeList=(EL*)malloc(sizeof(EL)*n);
 	Menu(employeeList,n);
 	if(employeeList!=NULL) free(employeeList);
+}
 
