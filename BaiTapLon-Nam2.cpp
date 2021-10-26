@@ -19,7 +19,7 @@ class Practise{
 		friend istream& operator >> (istream& is , Practise &pt1);
 		friend ostream& operator << (ostream& os, Practise &pt1);
 		float point();
-		void setPractise();
+		void setPractise(float x);
 		float getPractise();
 };
 class Scholarship{
@@ -89,15 +89,16 @@ float Practise::point(){
 		temp=0;
 	}
 	else{
-		pre=lesson + allow*3 + n_allow*2;
+		pre=leson*5 + allow*3 + n_allow*2;
 		temp=(pre/s_lesson);
 	}
 	return temp;
 } 
-void Practise::setPractise(){
-	this->practise=point();
+void Practise::setPractise(float x){
+	this->practise=x;
 }
 float Practise::getPractise(){
+         setPractise(point());
 	return this->practise;
 }
 istream& operator >> (istream& is, Scholarship &ip1){
