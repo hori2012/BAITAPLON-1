@@ -58,3 +58,8 @@ void Profile::set_Gpa(){
 	cout<<endl;
 	this->gpa=temp;
 }
+
+int main(){
+	
+	return 0;
+}
