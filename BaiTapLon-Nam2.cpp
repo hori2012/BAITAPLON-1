@@ -1,131 +1,60 @@
 #include<iostream>
 #include<string>
+#include<string>
+#include<cmath>
 using namespace std;
 class Profile{
 	private:
-		string fullname, mssv, province;
+		string  fullname, mssv, province, Class;
 		float gpa;
 	public:
 		friend istream& operator >> (istream& is, Profile &pf1);
 		friend ostream& operator << (ostream& os, Profile &pf1);
 		float getGpa();
+		string getName();
+		void set_Gpa() ;
 };
-class Practise{
-	private:
-		float lesson, allow, n_allow;
-		float practise;
-		float s_lesson;
-	public:
-		friend istream& operator >> (istream& is , Practise &pt1);
-		friend ostream& operator << (ostream& os, Practise &pt1);
-		float point();
-		void setPractise(float x);
-		float getPractise();
-};
-class Scholarship{
-	private:
-		string namebank;
-		int numberbank;
-	public:
-		friend istream& operator >> (istream& is, Scholarship &ip1);
-		friend ostream& operator << (ostream& os, Scholarship &ip1);	
-};
+
 istream& operator >> (istream& is, Profile &pf1){
-	cout<<"Enter of the name: ";
+	cout<<"Nhap ho ten sinh vien: ";
 	fflush(stdin);
 	getline(is, pf1.fullname);
 	cout<<endl;
-	cout<<"Enter of the mssv: ";
+	cout<<"Nhap ma so sinh vien: ";
 	fflush(stdin);
 	getline(is, pf1.mssv);
 	cout<<endl;
-	cout<<"Enter of the province: ";
+	cout<<"Nhap lop: ";
+	fflush(stdin);
+	getline(is, pf1.Class);
+	cout<<endl;
+	cout<<"Nhap que cua sinh vien: ";
 	fflush(stdin);
 	getline(is, pf1.province);
 	cout<<endl;
-	cout<<"Enter of the gpa: ";
+	cout<<"Nhap diem trung binh: ";
 	is>>pf1.gpa;
 	cout<<endl;
 	return is;
 }
 ostream& operator << (ostream& os, Profile &pf1){
-	os<<"Fullname: "<<pf1.fullname<<endl;
-	os<<"Mssv: "<<pf1.mssv<<endl;
-	os<<"Provice: "<<pf1.province<<endl;
-	os<<"GPA: "<<pf1.gpa<<endl;
+	os<<"Ho va ten: "<<pf1.fullname<<endl;
+	os<<"MSSV: "<<pf1.mssv<<endl;
+	os<<"Lop: "<<pf1.Class<<endl;
+	os<<"Que: "<<pf1.province<<endl;
+	os<<"Diem trung binh: "<<pf1.gpa<<endl;
 	return os;
 }
 float Profile::getGpa(){
 	return this->gpa;
 }
-istream& operator >> (istream& is, Practise &pt1){
-	cout<<"Enter of the sum lesson: ";
-	is>>pt1.s_lesson;
-	cout<<endl;
-	cout<<"Enter of the lesson: ";
-	is>>pt1.lesson;
-	cout<<endl;
-	cout<<"Enter of the allow: ";
-	is>>pt1.allow;
-	cout<<endl;
-	cout<<"Enter of the not allow: ";
-	is>>pt1.n_allow;
-	cout<<endl;
-	return is;
+string Profile::getName(){
+	return this->fullname;
 }
-ostream& operator << (ostream& os, Practise &pt1){
-	os<<"Sum lesson: "<<pt1.s_lesson<<endl;
-	os<<"Lesson: "<<pt1.lesson<<endl;
-	os<<"Allow: "<<pt1.allow<<endl;
-	os<<"Not allow: "<<pt1.n_allow<<endl;
-	return os;
-}
-float Practise::point(){
-	float cur;   
-	float pre;
+void Profile::set_Gpa(){
 	float temp;
-	cur= allow + n_allow;
-	if(cur > (s_lesson * 0.15)){
-		temp=0;
-	}
-	else{
-		pre=leson*5 + allow*3 + n_allow*2;
-		temp=(pre/s_lesson);
-	}
-	return temp;
-} 
-void Practise::setPractise(float x){
-	this->practise=x;
-}
-float Practise::getPractise(){
-         setPractise(point());
-	return this->practise;
-}
-istream& operator >> (istream& is, Scholarship &ip1){
-	cout<<"Enter of the name bank: ";
-	fflush(stdin);
-	getline(is, ip1.namebank);
+	cout<<"Nhap diem trung binh thay the: ";
+	cin>>temp;
 	cout<<endl;
-	cout<<"Enter of the number bank: ";
-	is>>ip1.numberbank;
-	cout<<endl;
-	return is;
-}
-ostream& operator << (ostream& os, Scholarship &ip1){
-	os<<"Name bank: "<<ip1.namebank<<endl;
-	os<<"Number bank: "<<ip1.numberbank<<endl;
-	return os;
-}
-int main(){
-	/*Profile a;
-	cin>>a;
-	cout<<a;*/
-	Practise b;
-	cin>>b;
-	cout<<b;
-	cout<<"Practise: "<<b.getPractise()<<endl;
-/*	Scholarship c;
-	cin>>c;
-	cout<<c;*/
-	return 0;
+	this->gpa=temp;
 }
